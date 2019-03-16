@@ -1,6 +1,5 @@
 from django.db import models
-
-# Create your models here.
+import datetime as dt
   
 class Category (models.Model):
     name = models.CharField(max_length=30)
@@ -8,7 +7,8 @@ class Category (models.Model):
     def __str__(self):
         return self.name
 
-    
+    def save_category(self):
+        self.save()
 
 class Location (models.Model): 
     name = models.CharField(max_length=30)
@@ -16,15 +16,22 @@ class Location (models.Model):
     def __str__(self):
         return self.name 
 
-    
+    def save_location(self):
+        self.save()
 
 class Image(models.Model):
-    title = models.CharField(max_length=30)
+    
     name = models.CharField(max_length=30)
     description = models.TextField(max_length=1024)
-    pub_date = models.DateTimeField(auto_now_add=True)
+    image = models.ImageField(upload_to = 'image/')
     location = models.ForeignKey(Location)
     category = models.ForeignKey(Category)
+    capture_date= models.TimeField(auto_now_add=True)
+
+    @classmethod
+    def search_by_title(cls,search_term):
+        news = cls.objects.filter(title__icontains=search_term)
+        return news
 
     def save_image(self):
         self.save()

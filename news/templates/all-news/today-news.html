@@ -1,5 +1,36 @@
-{%extends 'all-news/base.html'%}
+{%extends 'all-image/base.html'%}
+{% block content %} 
+{{ block.super}}
 
-{% block content %}
-{{block.super}}
+<div class="container">
+
+  <!-- Looping through image   -->
+  {% for image_item in image %}
+
+  <div class="row">
+    <!-- displaying image articles -->
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <h2 class="text-center"> {{ image_item.title }} </h2>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{image_item.image_image.url}}" class="img-responsive" alt="Image">
+    </div>
+  </div>
+
+  {% empty %}
+  <div class="row">
+    <h2 class="text-center">There No image Items</h2>
+  </div>
+  {% endfor %}
+
+</div>
+
 {% endblock %}
+
+    
+   
+
+    <!--Display image Article images  -->
+    
+
+  </div>
