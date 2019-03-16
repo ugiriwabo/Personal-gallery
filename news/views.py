@@ -5,8 +5,11 @@ import datetime as dt
 
 # Create your views here.
 def welcome(request):
-    return render(request, 'welcome.html')
+    return render(request, 'all-news/welcome.html')
 
+def image(request):
+    images = Image.objects.all()
+    return render(request,'all-news/welcome.html',{'images':images})
 
 def search_results(request):
 
@@ -22,7 +25,7 @@ def search_results(request):
         return render(request, 'all-news/search.html',{"message":message})
 
 
-    
+
         
 
     

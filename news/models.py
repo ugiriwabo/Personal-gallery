@@ -19,8 +19,7 @@ class Location (models.Model):
     def save_location(self):
         self.save()
 
-class Image(models.Model):
-    
+class Image(models.Model): 
     name = models.CharField(max_length=30)
     description = models.TextField(max_length=1024)
     image = models.ImageField(upload_to = 'image/')
@@ -35,3 +34,12 @@ class Image(models.Model):
 
     def save_image(self):
         self.save()
+
+    @classmethod
+    def get_image_by_id(cls, id):
+        try:
+            image=Image.objects.get (id =id)
+            return image
+        except DoesNotExist:
+            return image.objects.get(id=1)
+        
