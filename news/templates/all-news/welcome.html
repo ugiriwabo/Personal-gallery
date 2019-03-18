@@ -7,10 +7,25 @@
     <div class="col-md-4">
       {% for image_item in images %}
           <h2> {{ image_item.name }} </h2>
-          <button type="button"  data-toggle="modal" data-target="#myModal">
-            <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:300px;"src="{{image_item.image.url}}" class="img-responsive" alt="Image">
-          </button>
-      
+          
+            <a href="" data-toggle="modal" data-target="#{{image_item.id}}">
+              <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:300px;"src="{{image_item.image.url}}" class="img-responsive" alt="Image">
+            </a>
+            
+            <div id="{{image_item.id}}" class="modal fade" role="dialog">
+                <div class="modal-dialog modal-lg modal-dialog-centered">
+            
+                    <div class="modal-content">
+                        <div class="modal-header">
+                          <!-- <button type="button" class="close" data-dismiss="modal">&times;</button> -->
+                         
+                          <img src="{{image_item.image.url}}" alt="" height="600" width="850">
+                        </div>
+                        
+                      </div>
+                  
+                    </div>
+                  </div>
       {% empty %}
         <h2 class="text-center">There No image Items</h2>
       
