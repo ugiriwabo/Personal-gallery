@@ -1,6 +1,22 @@
 {% extends 'all-news/base.html' %}
 {% block content %} 
 {{ block.super}}
-
+<div class="container">
+    <h1 class="text-center">welcome to Gallery</h1>
+  <div class="row">
+    <div class="col-md-4">
+      {% for image_item in images %}
+          <h2> {{ image_item.name }} </h2>
+          <button type="button"  data-toggle="modal" data-target="#myModal">
+            <img style=" margin-top: 20px; margin-bottom: 20px; width:350px; height:300px;"src="{{image_item.image.url}}" class="img-responsive" alt="Image">
+          </button>
+      
+      {% empty %}
+        <h2 class="text-center">There No image Items</h2>
+      
+      {% endfor %}
+    </div>  
+  </div>
+</div>
 {% endblock %}
   

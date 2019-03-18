@@ -28,9 +28,10 @@ class Image(models.Model):
     capture_date= models.TimeField(auto_now_add=True)
 
     @classmethod
-    def search_by_title(cls,search_term):
-        news = cls.objects.filter(title__icontains=search_term)
-        return news
+    def search_by_category(cls,search_term):
+        category=Category.objects.filter(name__icontains=search_term)
+        images = cls.objects.filter(category=category)
+        return images
 
     def save_image(self):
         self.save()
