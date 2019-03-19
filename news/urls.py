@@ -5,6 +5,7 @@ from django.conf.urls.static import static
 
 urlpatterns=[
     url('^$',views.image,name = 'image'),
+    url(r'^location/(\d+)',views.display_location,name='display_location'),
     url(r'^search/', views.search_results, name='search_results')
 ]
 if settings.DEBUG:

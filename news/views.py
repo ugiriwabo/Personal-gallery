@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http  import HttpResponse
-from .models import Image
+from .models import Image,Location
 import datetime as dt
 
 # Create your views here.
@@ -24,6 +24,17 @@ def search_results(request):
     else:
         message = "You haven't searched for any term"
         return render(request, 'search.html',{"message":message})
+
+
+
+def display_location(request,location_id):
+    try:
+        location = Location.objects.get(id = location_id)
+        images = Image.objects.filter(location = location.id)
+    except:
+        raise Http404()
+    return render(request,'all-news/location.html',{'location':location,'images':images})
+
 
 
 
