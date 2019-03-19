@@ -4,3 +4,5 @@ Personal Gallery App
 ## Author
 
 Ugiriwabo Aline Consolee
+
+## DESCRIPTION
