@@ -15,3 +15,5 @@ A personal gallery application that one displays their photos for others to see 
 * Virtualenv
 * Django 1.11
 * pip
+
+## Project Setup Instruction
