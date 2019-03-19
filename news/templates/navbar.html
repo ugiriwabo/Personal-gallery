@@ -14,18 +14,19 @@
     </div>
     <div class="col-sm-4 col-md-4 navbar-right">
       
-        <!-- <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Locations
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                {% for location in locations %}
-                  <a class="dropdown-item" href="{% url 'displayLocation' location.id%}">{{location.name}}</a>
+        <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:whitesmoke">Locations <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/location/1">Nyanza</a></li>
+                <li><a href="/location/2">huye</a></li>
+                 {% for location in locations %}
+                 <li><a class="dropdown-item" href="{% url 'displayLocation' location.id%}">{{location.photo_location}}</a></li> 
                 {% endfor %}
-              </div>
+              
+              </ul>
             </li>
-          </ul> -->
+          </ul>
       <form class="navbar-form" role="search" action="{% url 'search_results' %}">
 
         <div class="input-group">
@@ -36,19 +37,7 @@
         </div>
 
       </form>
-      <ul class="nav navbar-nav">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" style="color:whitesmoke">Locations <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="/location/1">Nyanza</a></li>
-              <li><a href="/location/2">huye</a></li>
-               {% for location in locations %}
-               <li><a class="dropdown-item" href="{% url 'displayLocation' location.id%}">{{location.photo_location}}</a></li> 
-              {% endfor %}
-            
-            </ul>
-          </li>
-        </ul>
+      
     </div>
     
     </div>
