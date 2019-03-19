@@ -26,3 +26,4 @@ You would need the following to access the website:
 * A web browser(Chrome is most recommendable).
 
 ## Email
+ugiraconsole@gmail.com
