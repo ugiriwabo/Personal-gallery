@@ -6,3 +6,4 @@ Personal Gallery App
 Ugiriwabo Aline Consolee
 
 ## DESCRIPTION
+A personal gallery application that one displays their photos for others to see who can copy the photos' links and share them.
